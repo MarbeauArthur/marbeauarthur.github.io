@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An interactive sorting algorithm visualizer by Marian Beauty Arthur." />
+    <title>Sorting Visualizer — Marian Beauty Arthur</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      .visualizer-toolbar { align-items: center; }
+      .visualizer-toolbar .field { min-width: 150px; }
+      .range-field { flex: 1; min-width: 180px; }
+      input[type="range"] { width: 100%; min-height: 42px; padding-inline: 0; border: 0; accent-color: var(--blue); }
+      .stage { display: flex; align-items: flex-end; gap: clamp(2px, .6vw, 7px); min-height: 360px; padding: 28px 10px 0; border-bottom: 1px solid var(--line); background: linear-gradient(#214bf007 1px, transparent 1px); background-size: 100% 25%; }
+      .bar { flex: 1; min-width: 3px; height: calc(var(--value) * 1%); background: var(--ink); transition: height .16s ease, background .16s ease, transform .16s ease; }
+      .bar.active { background: var(--blue); transform: translateY(-5px); }
+      .bar.sorted { background: var(--green); }
+      .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 22px; border: 1px solid var(--line); background: var(--line); }
+      .metric { padding: 17px; background: var(--surface); }
+      .metric strong { display: block; margin-bottom: 4px; font-family: var(--serif); font-size: 27px; font-weight: 400; }
+      .metric span { color: var(--muted); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+      @media (max-width: 640px) { .stage { min-height: 290px; } .metric-row { grid-template-columns: 1fr; } }
+    </style>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header shell"><a class="back-link" href="../../#projects"><span aria-hidden="true">←</span> Portfolio</a><span class="project-mark">CS concept / 004</span></header>
+    <main class="shell">
+      <section class="intro"><div><p class="eyebrow">See the logic move</p><h1>Sorting <em>visualizer.</em></h1></div><p class="intro-copy">Compare three classic sorting strategies and watch every comparison, move, and completed value.</p></section>
+      <section class="app-card" aria-labelledby="visualizer-status">
+        <div class="app-toolbar visualizer-toolbar"><div class="field"><label for="algorithm">Algorithm</label><select id="algorithm"><option value="bubble">Bubble sort</option><option value="selection">Selection sort</option><option value="insertion">Insertion sort</option></select></div><div class="field range-field"><label for="size">Array size: <output id="size-output">24</output></label><input id="size" type="range" min="10" max="50" value="24" /></div><div class="field range-field"><label for="speed">Speed</label><input id="speed" type="range" min="1" max="5" value="3" /></div><button class="button secondary" id="shuffle" type="button">Shuffle</button><button class="button" id="run" type="button">Run sort</button></div>
+        <div class="app-body"><div class="stage" id="stage" role="img" aria-label="Unsorted vertical bars"></div><div class="metric-row"><div class="metric"><strong id="comparisons">0</strong><span>Comparisons</span></div><div class="metric"><strong id="swaps">0</strong><span>Moves</span></div><div class="metric"><strong id="elapsed">0.0s</strong><span>Elapsed</span></div></div></div>
+        <footer class="app-footer"><p class="status" id="visualizer-status" aria-live="polite">Choose an algorithm, then run the sort.</p><span>Blue = comparing · Green = sorted</span></footer>
+      </section>
+    </main>
+  </body>
+</html>
