@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The personal space of MarbeauArthur. A place for projects, ideas, and what comes next." />
+    <meta name="theme-color" content="#f4f1e9" />
+    <title>MarbeauArthur — A personal space</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      try {
+        const theme = localStorage.getItem('ma-theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      } catch (_) {}
+    </script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#home" aria-label="MarbeauArthur home"><span class="brand-symbol" aria-hidden="true">m<span>.</span></span><span class="wordmark-name">MarbeauArthur</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#connect">Connect <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme" hidden><span class="theme-symbol" aria-hidden="true"></span></button>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="small-cross" aria-hidden="true">✳</span> Hello, I'm MarbeauArthur</p>
+          <h1 id="hero-title">A personal<br />space for<br /><span class="serif">what’s next.</span></h1>
+          <p class="hero-description">A place for projects, ideas,<br class="desktop-break" /> and a little possibility.</p>
+          <a class="round-link" href="#projects"><span class="round-arrow" aria-hidden="true">↘</span><span>Take a look around</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="An abstract cobalt circle intersecting a cream arch, a small star, and fine orbital lines">
+          <span class="art-label art-label-top" aria-hidden="true">A WORK IN PROGRESS</span>
+          <div class="art-grid" aria-hidden="true"></div>
+          <div class="art-orbit orbit-one" aria-hidden="true"></div>
+          <div class="art-orbit orbit-two" aria-hidden="true"></div>
+          <div class="art-circle" aria-hidden="true"></div>
+          <div class="art-arch" aria-hidden="true"></div>
+          <span class="art-star" aria-hidden="true">✳</span>
+          <span class="art-label art-label-bottom" aria-hidden="true">IDEAS IN MOTION <span>001 — ∞</span></span>
+        </div>
+        <div class="hero-footnote"><span>INDEPENDENT SPACE. OPEN POSSIBILITIES.</span><span class="scroll-note">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
+      </section>
+
+      <section class="about-section wrap section-layout" id="about" aria-labelledby="about-title">
+        <div class="section-index"><span>01 / ABOUT</span><span class="index-line" aria-hidden="true"></span></div>
+        <div class="about-content">
+          <h2 id="about-title">A corner of the internet.<br /><span class="serif">Made my own.</span></h2>
+          <div class="about-details">
+            <p class="lead">Welcome to my corner of the internet. A place for projects, ideas, and what comes next.</p>
+            <p>This is a starting point: somewhere to collect the things I make, explore, and choose to share. A little space to grow, one idea at a time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-section wrap section-layout" id="projects" aria-labelledby="projects-title">
+        <div class="section-index"><span>02 / PROJECTS</span><span class="index-line" aria-hidden="true"></span></div>
+        <div class="projects-content">
+          <div class="section-heading"><h2 id="projects-title">Starting <span class="serif">somewhere.</span></h2><span class="count">[ 01 ]</span></div>
+          <article class="project">
+            <div class="project-art" aria-hidden="true"><span class="mini-window"><span class="mini-window-bar"><i></i><i></i><i></i></span><span class="mini-window-content"><span class="mini-type">Hello,<br />world<span>.</span></span><span class="mini-orb"></span></span></span><span class="project-art-note">THE FIRST CHAPTER</span></div>
+            <div class="project-information">
+              <div class="project-topline"><span class="eyebrow">001 / PERSONAL PROJECT</span><span class="project-status"><span aria-hidden="true"></span>You're here</span></div>
+              <h3>Personal website</h3>
+              <p>The first thing here: this little corner of the web. A simple home for the projects and ideas that follow.</p>
+              <div class="project-bottomline"><ul class="tags" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul><span class="project-symbol" aria-hidden="true">↗</span></div>
+            </div>
+          </article>
+          <div class="next-project"><span class="next-star" aria-hidden="true">✳</span><p>The next chapter is still unwritten.<br /><span>There’s room for more here.</span></p><span class="next-number" aria-hidden="true">002</span></div>
+        </div>
+      </section>
+
+      <section class="connect-section" id="connect" aria-labelledby="connect-title">
+        <div class="wrap section-layout">
+          <div class="section-index"><span>03 / ELSEWHERE</span><span class="index-line" aria-hidden="true"></span></div>
+          <div class="connect-content"><p class="eyebrow">KEEP EXPLORING</p><h2 id="connect-title">See what<br /><span class="serif">comes next.</span></h2><a class="github-link" href="https://github.com/MarbeauArthur" target="_blank" rel="noopener noreferrer"><span>Find me on GitHub <span class="visually-hidden">(opens in a new tab)</span></span><span class="github-arrow" aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap"><a class="footer-name" href="#home">MarbeauArthur<span aria-hidden="true">.</span></a><p>A small space, made with care.</p><a class="back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+  </body>
+</html>
