@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A simple weighted GPA calculator by Marian Beauty Arthur." />
+    <title>GPA Calculator — Marian Beauty Arthur</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      .course-head, .course-row { display: grid; grid-template-columns: minmax(160px, 1fr) 100px 120px 42px; gap: 10px; align-items: center; }
+      .course-head { padding: 0 0 10px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+      .course-list { display: grid; gap: 10px; }
+      .course-row input, .course-row select { width: 100%; }
+      .remove-course { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 18px; }
+      .remove-course:hover { color: var(--red); border-color: var(--red); }
+      .result-panel { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 28px; padding: 24px; background: var(--ink); color: var(--paper); }
+      .result-label { display: block; margin-bottom: 7px; color: #b8c6d1; font-size: 9px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; }
+      .result-message { margin: 0; font-size: 13px; color: #c8d1d8; }
+      .gpa-value { font-family: var(--serif); font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
+      @media (max-width: 620px) {
+        .course-head { display: none; }
+        .course-row { grid-template-columns: 1fr 76px 90px 42px; }
+        .course-name { grid-column: 1 / -1; }
+        .result-panel { grid-template-columns: 1fr; }
+      }
+    </style>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header shell"><a class="back-link" href="../../#projects"><span aria-hidden="true">←</span> Portfolio</a><span class="project-mark">Student tool / 002</span></header>
+    <main class="shell">
+      <section class="intro"><div><p class="eyebrow">Make every credit count</p><h1>GPA <em>calculator.</em></h1></div><p class="intro-copy">Add courses, credit hours, and grades to estimate a weighted semester GPA on a 4.0 scale.</p></section>
+      <section class="app-card" aria-labelledby="calculator-heading">
+        <div class="app-toolbar"><button class="button" id="add-course" type="button">+ Add course</button><button class="button secondary" id="reset" type="button">Reset</button><p class="status" id="calculator-heading" aria-live="polite">Five starter rows are ready.</p></div>
+        <div class="app-body">
+          <div class="course-head" aria-hidden="true"><span>Course</span><span>Credits</span><span>Grade</span><span></span></div>
+          <div class="course-list" id="course-list"></div>
+          <div class="result-panel"><div><span class="result-label">Estimated semester GPA</span><p class="result-message" id="result-message">Enter your courses to see the weighted result.</p></div><output class="gpa-value" id="gpa-output" aria-label="Estimated GPA">0.00</output></div>
+        </div>
+        <footer class="app-footer"><span>Scale: A 4.0 · B+ 3.5 · B 3.0 · C+ 2.5 · C 2.0 · D 1.0 · F 0</span><span>Results are estimates.</span></footer>
+      </section>
+    </main>
+  </body>
+</html>
