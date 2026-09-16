@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A focused study planner by Marian Beauty Arthur." />
+    <title>Study Planner — Marian Beauty Arthur</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      .planner-form { display: grid; grid-template-columns: 1.5fr 1fr 150px 120px auto; gap: 12px; align-items: end; width: 100%; }
+      .planner-form .button { white-space: nowrap; }
+      .planner-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 24px; border: 1px solid var(--line); background: var(--line); }
+      .summary-item { padding: 18px; background: var(--surface); }
+      .summary-item strong { display: block; margin-bottom: 5px; font-family: var(--serif); font-size: 30px; font-weight: 400; }
+      .summary-item span { color: var(--muted); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+      .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+      .filter { border: 1px solid var(--line); background: transparent; padding: 8px 12px; font-size: 10px; }
+      .filter[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+      .task-list { display: grid; gap: 10px; }
+      .task { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 16px; border: 1px solid var(--line); }
+      .task.completed .task-title { text-decoration: line-through; color: var(--muted); }
+      .task-check { width: 20px; height: 20px; accent-color: var(--blue); }
+      .task-title { margin: 0 0 6px; font-size: 14px; }
+      .task-meta { display: flex; flex-wrap: wrap; gap: 9px; color: var(--muted); font-size: 10px; }
+      .priority { padding: 3px 6px; border: 1px solid var(--line); text-transform: uppercase; letter-spacing: .7px; }
+      .priority.high { color: var(--red); border-color: #c94d4d66; }
+      .priority.low { color: var(--green); border-color: #16876066; }
+      .delete-task { border: 0; background: transparent; color: var(--muted); font-size: 18px; }
+      .delete-task:hover { color: var(--red); }
+      @media (max-width: 900px) { .planner-form { grid-template-columns: 1fr 1fr; } .planner-form .field:first-child { grid-column: 1 / -1; } }
+      @media (max-width: 560px) { .planner-form { grid-template-columns: 1fr; } .planner-form .field:first-child { grid-column: auto; } .planner-summary { grid-template-columns: 1fr; } }
+    </style>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header shell"><a class="back-link" href="../../#projects"><span aria-hidden="true">←</span> Portfolio</a><span class="project-mark">Productivity app / 003</span></header>
+    <main class="shell">
+      <section class="intro"><div><p class="eyebrow">A lighter study load</p><h1>Study <em>planner.</em></h1></div><p class="intro-copy">Turn deadlines into a clear plan. Tasks stay saved in this browser, ready for the next study session.</p></section>
+      <section class="app-card" aria-labelledby="planner-heading">
+        <form class="app-toolbar planner-form" id="task-form"><div class="field"><label for="task-title">Task</label><input id="task-title" required maxlength="100" placeholder="e.g. Review recursion notes" /></div><div class="field"><label for="task-subject">Subject</label><input id="task-subject" required maxlength="50" placeholder="Algorithms" /></div><div class="field"><label for="task-date">Due date</label><input id="task-date" type="date" required /></div><div class="field"><label for="task-priority">Priority</label><select id="task-priority"><option>High</option><option selected>Medium</option><option>Low</option></select></div><button class="button" type="submit">Add task</button></form>
+        <div class="app-body">
+          <div class="planner-summary"><div class="summary-item"><strong id="total-count">0</strong><span>Total tasks</span></div><div class="summary-item"><strong id="open-count">0</strong><span>Still to do</span></div><div class="summary-item"><strong id="done-count">0</strong><span>Completed</span></div></div>
+          <div class="filter-row" aria-label="Filter tasks"><button class="filter" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="open" aria-pressed="false">To do</button><button class="filter" data-filter="done" aria-pressed="false">Completed</button></div>
+          <div class="task-list" id="task-list"></div>
+        </div>
+        <footer class="app-footer"><p class="status" id="planner-heading" aria-live="polite">Ready to plan.</p><button class="button secondary danger" id="clear-completed" type="button">Clear completed</button></footer>
+      </section>
+    </main>
+  </body>
+</html>
